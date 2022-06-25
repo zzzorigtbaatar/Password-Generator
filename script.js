@@ -35,13 +35,12 @@ function generatePassword() {
   getSpecialPrompt();
   if (atLeastOneCharType) {
     for (i = 0; i < lengthChoice; i++) {
-      currentPassword += allChoicesArray.charAt(randomNo(1, allChoicesArray.length - 1))
+      currentPassword += allChoicesArray.charAt(randomNo(0, allChoicesArray.length - 1));
     }
   } else if (!atLeastOneCharType) {
     window.alert("You must pick at least one character type.");
     restart();
   }
-  console.log(currentPassword);
   return currentPassword;
 }
 
