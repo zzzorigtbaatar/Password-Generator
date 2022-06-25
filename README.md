@@ -14,11 +14,21 @@ and at least one character type:
 
 ![](./assets/images/password-generator-demo2.gif)
 
-## Technologies Used
+## Table of Contents
+
+If your README is very long, add a table of contents to make it easy for users to find what they need.
+
+* [Usage](#usage)
+* [Links](#Links)
+* [Credits](#credits)
+* [License](#license)
+* [Contact](#Contact)
+
+## Usage
 
 In order to do this project, I used Javascript, HTML, CSS, git, and github.
 
-I added javascript functions to a given starter code in which I utilized prompts and alerts to retrieve user inputs and choices.
+I added javascript functions to a given starter code in which I utilized prompts and alerts to retrieve user inputs and choicesit .
 
 ```
 //Create prompt to include special characters
@@ -58,8 +68,8 @@ function getSpecialPrompt() {
 
 [LICENSE](/LICENSE)
 
-## Contact Me
-
-https://zzzorigtbaatar.github.io/My-Portfolio
+## Contact
 
 https://www.linkedin.com/in/zorizulkhuu/
+
+https://zzzorigtbaatar.github.io/My-Portfolio
