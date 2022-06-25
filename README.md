@@ -18,7 +18,7 @@ and at least one character type:
 
 In order to do this project, I used Javascript, HTML, CSS, git, and github.
 
-I added javascript functions to a given starter code in which I utilized prompts and alerts to retrieve user inputs and choicesit .
+I added javascript functions to a given starter code in which I utilized prompts and alerts to retrieve user inputs and choices.
 
 ```
 //Create prompt to include special characters
