@@ -1,6 +1,5 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-// var specialCharList = ["!", "\"", "#", "$", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"]
 var specialCharList = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 var lowercaseList = "abcdefghijklmnopqrstuvwxyz"
 var uppercaseList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -17,7 +16,7 @@ function randomNo(x, y) {
   return randomNo;
 }
 
-// Write password to the #password input
+// Write password to the #password textarea
 function writePassword() {
   atLeastOneCharType = false;
   var password = generatePassword();
@@ -42,7 +41,7 @@ function generatePassword() {
     window.alert("You must pick at least one character type.");
     restart();
   }
-console.log(currentPassword);
+  console.log(currentPassword);
   return currentPassword;
 }
 
@@ -143,6 +142,7 @@ function getSpecialPrompt() {
   } while (stillNeedChoice)
 }
 
+//Reset password and prompt choices
 function restart() {
   allChoicesArray = [""];
   lengthChoice = 0;
