@@ -6,15 +6,19 @@ Welcome to my password generator project.
 
 This project aims to showcase my ability in javascript by presenting a solution to the real life problem of generating strong passwords for greater security.
 
-The user is asked to choose a password length and at least one character type to generate a random password that satisfies their criteria.
+To generate a random password that satisfies their criteria, the user is asked to choose a password length within a specific range:
 
 ![](./assets/images/password-generator-demo1.gif)
+
+and at least one character type:
 
 ![](./assets/images/password-generator-demo2.gif)
 
 ## Technologies Used
 
-I added functions to a given starter code in which I utilized javascript prompts and alerts to retrieve user inputs and choices.
+In order to do this project, I used Javascript, HTML, CSS, git, and github.
+
+I added javascript functions to a given starter code in which I utilized prompts and alerts to retrieve user inputs and choices.
 
 ```
 //Create prompt to include special characters
@@ -59,8 +63,3 @@ function getSpecialPrompt() {
 https://zzzorigtbaatar.github.io/My-Portfolio
 
 https://www.linkedin.com/in/zorizulkhuu/
-
-
-
-
-
