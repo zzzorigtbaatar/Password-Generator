@@ -79,7 +79,7 @@ function getLowercasePrompt() {
       atLeastOneCharType = true;
     } else if (userChoice === "n") {
       stillNeedChoice = false;
-    } else if (userChoice !== "y" || userChoice === "n") {
+    } else if (userChoice !== "y" && userChoice !== "n") {
       window.alert("Please enter y or n");
       userChoice = window.prompt("Do you want lowercase letters? (y/n):");
     }
@@ -99,7 +99,7 @@ function getUppercasePrompt() {
       atLeastOneCharType = true;
     } else if (userChoice === "n") {
       stillNeedChoice = false;
-    } else if (userChoice !== "y" || userChoice === "n") {
+    } else if (userChoice !== "y" && userChoice !== "n") {
       window.alert("Please enter y or n");
       userChoice = window.prompt("Do you want uppercase letters? (y/n):");
     }
@@ -117,7 +117,7 @@ function getNumericPrompt() {
       atLeastOneCharType = true;
     } else if (userChoice === "n") {
       stillNeedChoice = false;
-    } else if (userChoice !== "y" || userChoice === "n") {
+    } else if (userChoice !== "y" && userChoice !== "n") {
       window.alert("Please enter y or n");
       userChoice = window.prompt("Do you want numerical characters? (y/n):");
     }
@@ -135,7 +135,7 @@ function getSpecialPrompt() {
       atLeastOneCharType = true;
     } else if (userChoice === "n") {
       stillNeedChoice = false;
-    } else if (userChoice !== "y" || userChoice === "n") {
+    } else if (userChoice !== "y" && userChoice !== "n") {
       window.alert("Please enter y or n");
       userChoice = window.prompt("Do you want special characters? (y/n):");
     }
