@@ -1,11 +1,13 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var specialCharList = ["!", "\"", "#", "$", "&", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"]
+// var specialCharList = ["!", "\"", "#", "$", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"]
+var specialCharList = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 var lowercaseList = "abcdefghijklmnopqrstuvwxyz"
 var uppercaseList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-var numericList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-var currentPassword;
+var numericList = "0123456789"
+var allChoicesArray = [""];
 var lengthChoice = 0;
+var atLeastOneCharType = false;
 
 //Generate random number between x and y
 function randomNo(x, y) {
@@ -17,20 +19,30 @@ function randomNo(x, y) {
 
 // Write password to the #password input
 function writePassword() {
+  atLeastOneCharType = false;
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
-
 }
 
 //Create password from prompt choices
 function generatePassword() {
-  var allChoicesArray;
+  var currentPassword = "";
+  allChoicesArray = [""];
   lengthChoice = getLengthPrompt();
   getLowercasePrompt();
-  for (i = 0; i < lengthChoice; i++) {
-    currentPassword += allChoicesArray[randomNo(0, allChoicesArray.length - 1)]
+  getUppercasePrompt();
+  getNumericPrompt();
+  getSpecialPrompt();
+  if (atLeastOneCharType) {
+    for (i = 0; i < lengthChoice; i++) {
+      currentPassword += allChoicesArray.charAt(randomNo(1, allChoicesArray.length - 1))
+    }
+  } else if (!atLeastOneCharType) {
+    window.alert("You must pick at least one character type.");
+    restart();
   }
+console.log(currentPassword);
   return currentPassword;
 }
 
@@ -40,10 +52,12 @@ function getLengthPrompt() {
   var stillNeedInput = true;
   do {
     if (!isNaN(userInput) && userInput < 8) {
+      window.alert("Password length cannot be less than 8 characters.");
       userInput = window.prompt("Please enter a password length between 8 and 128 characters:");
     } else if (!isNaN(userInput) && userInput > 128) {
+      window.alert("Password length cannot be greater than 128 characters.");
       userInput = window.prompt("Please enter a password length between 8 and 128 characters:");
-    } else if (!isNaN(userInput) && userInput > 8 && userInput < 128) {
+    } else if (!isNaN(userInput) && userInput >= 8 && userInput <= 128) {
       stillNeedInput = false;
       return userInput;
     } else if (isNaN(userInput)) {
@@ -51,6 +65,7 @@ function getLengthPrompt() {
       userInput = window.prompt("Please enter a password length between 8 and 128 characters:");
     }
   } while (stillNeedInput)
+  return;
 }
 
 //Create prompt to include lowercase characters
@@ -59,8 +74,10 @@ function getLowercasePrompt() {
   var stillNeedChoice = true;
   do {
     if (userChoice === "y") {
-      allChoicesArray.concat(lowercaseList.split(""));
       stillNeedChoice = false;
+      allChoicesArray += lowercaseList.split(" ").toString();
+      console.log(allChoicesArray);
+      atLeastOneCharType = true;
     } else if (userChoice === "n") {
       stillNeedChoice = false;
     } else if (userChoice !== "y" || userChoice === "n") {
@@ -68,24 +85,69 @@ function getLowercasePrompt() {
       userChoice = window.prompt("Do you want lowercase letters? (y/n):");
     }
   } while (stillNeedChoice)
+  return;
 }
 
 
-//Create prompt to include luppercase characters
-function generateUppercasePrompt() {
-  allChoicesArray.concat(uppercaseList.split(""));
+//Create prompt to include uppercase characters
+function getUppercasePrompt() {
+  var userChoice = window.prompt("Do you want uppercase letters? (y/n):");
+  var stillNeedChoice = true;
+  do {
+    if (userChoice === "y") {
+      stillNeedChoice = false;
+      allChoicesArray += uppercaseList.split(" ").toString();
+      atLeastOneCharType = true;
+    } else if (userChoice === "n") {
+      stillNeedChoice = false;
+    } else if (userChoice !== "y" || userChoice === "n") {
+      window.alert("Please enter y or n");
+      userChoice = window.prompt("Do you want uppercase letters? (y/n):");
+    }
+  } while (stillNeedChoice)
 }
 
 //Create prompt to include numerical characters
-function generateNumericalPrompt() {
-  allChoicesArray.concat(numericList.split(""));
+function getNumericPrompt() {
+  var userChoice = window.prompt("Do you want numerical characters? (y/n):");
+  var stillNeedChoice = true;
+  do {
+    if (userChoice === "y") {
+      stillNeedChoice = false;
+      allChoicesArray += numericList.split(" ").toString();
+      atLeastOneCharType = true;
+    } else if (userChoice === "n") {
+      stillNeedChoice = false;
+    } else if (userChoice !== "y" || userChoice === "n") {
+      window.alert("Please enter y or n");
+      userChoice = window.prompt("Do you want numerical characters? (y/n):");
+    }
+  } while (stillNeedChoice)
 }
 
 //Create prompt to include special characters
-function generateSpecialPrompt() {
-  allChoicesArray.concat(specialCharList);
+function getSpecialPrompt() {
+  var userChoice = window.prompt("Do you want special characters? (y/n):");
+  var stillNeedChoice = true;
+  do {
+    if (userChoice === "y") {
+      stillNeedChoice = false;
+      allChoicesArray += specialCharList.split(" ").toString();
+      atLeastOneCharType = true;
+    } else if (userChoice === "n") {
+      stillNeedChoice = false;
+    } else if (userChoice !== "y" || userChoice === "n") {
+      window.alert("Please enter y or n");
+      userChoice = window.prompt("Do you want special characters? (y/n):");
+    }
+  } while (stillNeedChoice)
 }
 
+function restart() {
+  allChoicesArray = [""];
+  lengthChoice = 0;
+  atLeastOneCharType = false;
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
