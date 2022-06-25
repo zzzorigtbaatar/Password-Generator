@@ -45,7 +45,7 @@ function generatePassword() {
   return currentPassword;
 }
 
-//Create prompt for length of password
+//Create prompt for password length
 function getLengthPrompt() {
   var userInput = window.prompt("Enter password length (between 8 and 128 characters):");
   var stillNeedInput = true;
@@ -67,7 +67,7 @@ function getLengthPrompt() {
   return;
 }
 
-//Create prompt to include lowercase characters
+//Create prompt for lowercase characters
 function getLowercasePrompt() {
   var userChoice = window.prompt("Do you want lowercase letters? (y/n):");
   var stillNeedChoice = true;
@@ -88,7 +88,7 @@ function getLowercasePrompt() {
 }
 
 
-//Create prompt to include uppercase characters
+//Create prompt for uppercase characters
 function getUppercasePrompt() {
   var userChoice = window.prompt("Do you want uppercase letters? (y/n):");
   var stillNeedChoice = true;
@@ -106,7 +106,7 @@ function getUppercasePrompt() {
   } while (stillNeedChoice)
 }
 
-//Create prompt to include numerical characters
+//Create prompt for numerical characters
 function getNumericPrompt() {
   var userChoice = window.prompt("Do you want numerical characters? (y/n):");
   var stillNeedChoice = true;
@@ -124,7 +124,7 @@ function getNumericPrompt() {
   } while (stillNeedChoice)
 }
 
-//Create prompt to include special characters
+//Create prompt for special characters
 function getSpecialPrompt() {
   var userChoice = window.prompt("Do you want special characters? (y/n):");
   var stillNeedChoice = true;
