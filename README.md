@@ -21,22 +21,24 @@ In order to do this project, I used Javascript, HTML, CSS, git, and github.
 I added javascript functions to a given starter code in which I utilized prompts and alerts to retrieve user inputs and choices.
 
 ```
-//Create prompt to include special characters
-function getSpecialPrompt() {
-  var userChoice = window.prompt("Do you want special characters? (y/n):");
+//Create prompt for lowercase characters
+function lowercasePrompt() {
+  var userChoice = window.prompt("Do you want lowercase letters? (y/n):");
   var stillNeedChoice = true;
   do {
     if (userChoice === "y") {
       stillNeedChoice = false;
-      allChoicesArray += specialCharList.split(" ").toString();
+      allChoicesArray += lowercaseList.split(" ").toString();
+      console.log(allChoicesArray);
       atLeastOneCharType = true;
     } else if (userChoice === "n") {
       stillNeedChoice = false;
-    } else if (userChoice !== "y" || userChoice === "n") {
+    } else if (userChoice !== "y" && userChoice !== "n") {
       window.alert("Please enter y or n");
-      userChoice = window.prompt("Do you want special characters? (y/n):");
+      userChoice = window.prompt("Do you want lowercase letters? (y/n):");
     }
   } while (stillNeedChoice)
+  return;
 }
 ```
 

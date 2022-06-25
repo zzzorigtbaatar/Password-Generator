@@ -28,11 +28,11 @@ function writePassword() {
 function generatePassword() {
   var currentPassword = "";
   allChoicesArray = [""];
-  lengthChoice = getLengthPrompt();
-  getLowercasePrompt();
-  getUppercasePrompt();
-  getNumericPrompt();
-  getSpecialPrompt();
+  lengthChoice = lengthPrompt();
+  lowercasePrompt();
+  uppercasePrompt();
+  numericPrompt();
+  specialPrompt();
   if (atLeastOneCharType) {
     for (i = 0; i < lengthChoice; i++) {
       currentPassword += allChoicesArray.charAt(randomNo(0, allChoicesArray.length - 1));
@@ -45,7 +45,7 @@ function generatePassword() {
 }
 
 //Create prompt for password length
-function getLengthPrompt() {
+function lengthPrompt() {
   var userInput = window.prompt("Enter password length (between 8 and 128 characters):");
   var stillNeedInput = true;
   do {
@@ -67,7 +67,7 @@ function getLengthPrompt() {
 }
 
 //Create prompt for lowercase characters
-function getLowercasePrompt() {
+function lowercasePrompt() {
   var userChoice = window.prompt("Do you want lowercase letters? (y/n):");
   var stillNeedChoice = true;
   do {
@@ -88,7 +88,7 @@ function getLowercasePrompt() {
 
 
 //Create prompt for uppercase characters
-function getUppercasePrompt() {
+function uppercasePrompt() {
   var userChoice = window.prompt("Do you want uppercase letters? (y/n):");
   var stillNeedChoice = true;
   do {
@@ -106,7 +106,7 @@ function getUppercasePrompt() {
 }
 
 //Create prompt for numerical characters
-function getNumericPrompt() {
+function numericPrompt() {
   var userChoice = window.prompt("Do you want numerical characters? (y/n):");
   var stillNeedChoice = true;
   do {
@@ -124,7 +124,7 @@ function getNumericPrompt() {
 }
 
 //Create prompt for special characters
-function getSpecialPrompt() {
+function specialPrompt() {
   var userChoice = window.prompt("Do you want special characters? (y/n):");
   var stillNeedChoice = true;
   do {
